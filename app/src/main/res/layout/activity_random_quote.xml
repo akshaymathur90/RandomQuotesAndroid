@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_quote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/fetch_quote_hint"
+        android:layout_marginBottom="@dimen/quote_bottom_margin"
+        android:padding="@dimen/random_quote_padding"
+        android:textSize="@dimen/random_quote_text"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3_hor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fetch_quote_hint_author"
+        android:textSize="@dimen/random_quote_author_text"
+        android:layout_marginTop="@dimen/quote_author_top_margin"
+        android:padding="@dimen/random_quote_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline3_hor" />
+
+    <Button
+        android:id="@+id/btn_fetch_quote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/fetch_quote"
+        app:layout_constraintBottom_toTopOf="@+id/btn_view_fav"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_ver"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_add_fav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_to_fav"
+        app:layout_constraintBottom_toTopOf="@+id/btn_view_fav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_ver" />
+
+    <Button
+        android:id="@+id/btn_view_fav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_fav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3_hor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

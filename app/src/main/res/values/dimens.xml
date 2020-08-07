@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="quote_bottom_margin">16dp</dimen>
+    <dimen name="random_quote_text">20sp</dimen>
+    <dimen name="random_quote_padding">8dp</dimen>
+    <dimen name="quote_author_top_margin">16dp</dimen>
+    <dimen name="random_quote_author_text">15sp</dimen>
+</resources>

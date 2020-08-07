@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RandomQuotes</string>
+    <string name="fetch_quote">Fetch Quote</string>
+    <string name="add_to_fav">Favourite</string>
+    <string name="view_fav">View Favorites</string>
+    <string name="fetch_quote_hint">Press Fetch Quote button to a new Quote</string>
+    <string name="fetch_quote_hint_author">Developer</string>
+    <string name="loading">Loading…</string>
+    <string name="added_to_fav_list">Added to Favorites</string>
+    <string name="no_offline_data">No Offline Data Available</string>
+    <string name="nothing_to_add">No Quote Available to Add</string>
+</resources>
