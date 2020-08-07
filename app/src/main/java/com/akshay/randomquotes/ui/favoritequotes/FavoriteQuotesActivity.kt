@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.akshay.randomquotes.R
 import com.akshay.randomquotes.RandomQuotesApp
+import com.akshay.randomquotes.database.QuoteEntity
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_favorite_quotes.*
 import javax.inject.Inject
 
@@ -20,7 +22,8 @@ class FavoriteQuotesActivity : AppCompatActivity() {
 
     @Inject
     lateinit var favoriteQuotesViewModelFactory: FavoriteQuotesViewModel.Factory
-    lateinit var favoriteQuotesViewModel: FavoriteQuotesViewModel
+    private lateinit var favoriteQuotesViewModel: FavoriteQuotesViewModel
+    private lateinit var adapter : FavoriteQuotesAdapter
 
     companion object {
         private const val TAG = "FavoriteQuotesActivity"
@@ -45,7 +48,7 @@ class FavoriteQuotesActivity : AppCompatActivity() {
     }
 
     private fun initList() {
-        val adapter = FavoriteQuotesAdapter()
+        adapter = FavoriteQuotesAdapter()
 
         list_fav_quotes.layoutManager = LinearLayoutManager(this)
         list_fav_quotes.adapter = adapter
@@ -55,12 +58,18 @@ class FavoriteQuotesActivity : AppCompatActivity() {
         list_fav_quotes.addItemDecoration(itemDecoration)
 
         favoriteQuotesViewModel.favoriteQuotesList.observe(this, Observer { quotes ->
-            Log.d(TAG, "Quotes is $quotes")
             quotes?.let {
-                Log.d(TAG, "Quotes are ${quotes.size}")
-                adapter.favoriteQuotes = quotes
-                adapter.notifyDataSetChanged()
+                displayQuotes(it)
             }
         })
+    }
+
+    private fun displayQuotes(quotes: List<QuoteEntity>) {
+        if (quotes.isNotEmpty()) {
+            adapter.favoriteQuotes = quotes
+            adapter.notifyDataSetChanged()
+        } else {
+            Snackbar.make(list_fav_quotes, getString(R.string.empty_fav_list), Snackbar.LENGTH_LONG).show()
+        }
     }
 }
