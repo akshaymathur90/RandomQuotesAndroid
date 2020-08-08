@@ -14,4 +14,7 @@ interface QuoteDao {
 
     @Query("Select * FROM favorite_quotes")
     fun getAllFavoriteQuotes(): LiveData<List<QuoteEntity>>
+
+    @Query("Select * FROM favorite_quotes WHERE id = :quoteId")
+    fun getQuote(quoteId: String): QuoteEntity?
 }
