@@ -10,7 +10,7 @@ import com.facebook.stetho.Stetho
 class RandomQuotesApp : Application() {
 
     lateinit var programmingQuotesComponent: ProgrammingQuotesComponent
-
+    private val baseUrl = "https://programming-quotes-api.herokuapp.com/"
 
 
     override fun onCreate() {
@@ -18,7 +18,7 @@ class RandomQuotesApp : Application() {
         Stetho.initializeWithDefaults(this)
         val appComponent = DaggerAppComponent.builder()
             .appModule(AppModule(this))
-            .netModule(NetModule("https://programming-quotes-api.herokuapp.com/"))
+            .netModule(NetModule(baseUrl))
             .roomModule(RoomModule())
             .build()
 
